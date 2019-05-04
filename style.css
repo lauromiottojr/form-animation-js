@@ -40,11 +40,11 @@ body {
 .field-name input,
 .field-email input,
 .field-password input {
-    background: none;
-    border: none;
-    flex: 1;
-    height: 100%;
-    outline: none;
+  background: none;
+  border: none;
+  flex: 1;
+  height: 100%;
+  outline: none;
 }
 
 div.innactive {
@@ -57,4 +57,16 @@ div.innactive {
   opacity: 1;
   pointer-events: all;
   transform: translate(-50%, -50%);
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
 }

@@ -5,6 +5,11 @@ function animatedForm() {
             const input = arrow.previousElementSibling;
             const parent = arrow.parentElement;
             const nextForm = parent.nextElementSibling;
+
+            // Check for validation
+            if (input.type === 'text' && validateUser(input)) {
+                console.log('everything is okay!');
+            }
         });
     });
 }

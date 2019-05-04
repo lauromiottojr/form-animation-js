@@ -8,7 +8,11 @@ function animatedForm() {
 
             // Check for validation
             if (input.type === 'text' && validateUser(input)) {
-                console.log('everything is okay!');
+                nextSlide(parent, nextForm);
+            } else if (input.type === 'email' && validateEmail(input)) {
+                nextSlide(parent, nextForm);
+            } else if (input.type === 'password' && validateUser(input)) {
+                nextSlide(parent, nextForm);
             }
         });
     });
@@ -17,11 +21,28 @@ function animatedForm() {
 function validateUser(user) {
     if (user.value.length < 6) {
         console.log('not enough characteres');
-        error('rgb(189, 87, 87)')
+        error('rgb(189, 87, 87)');
     } else {
         error('rgb(87, 189, 130)');
         return true;
     }
+}
+
+function validateEmail(email) {
+    const validation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (validation.test(email.value)) {
+        error('rgb(87, 189, 130)');
+        return true;
+    } else {
+        error('rgb(189, 87, 87)');
+    }
+}
+
+function nextSlide(parent, nextForm) {
+    parent.classList.add('innactive');
+    parent.classList.remove('active');
+    nextForm.classList.remove('innactive');
+    nextForm.classList.add('active');
 }
 
 function error(color) {
